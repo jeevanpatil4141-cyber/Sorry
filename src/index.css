@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbars while preserving scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Perspective & 3D transform utilities */
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+.rotate-y-\[-16deg\] {
+  transform: rotateY(-16deg);
+}
+
+.rotate-y-\[16deg\] {
+  transform: rotateY(16deg);
+}
+
+/* Smooth book page glow */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #1e1713;
+  background-image: 
+    radial-gradient(ellipse at 50% 30%, rgba(69, 91, 69, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(199, 164, 106, 0.1) 0%, transparent 70%),
+    linear-gradient(to bottom, #1c1511 0%, #150f0c 100%);
+  color: #33231B;
+  font-family: 'Cormorant Garamond', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
